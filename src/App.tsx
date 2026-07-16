@@ -1,7 +1,8 @@
 
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import './style/global.css'
 import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
 
 
 
@@ -10,19 +11,19 @@ function App() {
 
   return (
     <>
-      <div className='app'>
+      
         <header id='main_header'>
-          <h1>Mini Blog</h1>
+          <Link id='your_blog' to='/'>YourBlog</Link>
           <Navbar />
         </header>
+
+
 
         <div className="container">
           <Outlet />
         </div>
-
-
-      </div>
-            
+        
+        <Footer />
     </>
   )
 }

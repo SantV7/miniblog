@@ -1,0 +1,14 @@
+.footer {
+    padding: 20px;
+    background-color: rgb(44, 40, 70);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 13px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.308);
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

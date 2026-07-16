@@ -1,16 +1,31 @@
 .ul_links {
     display: flex;
     gap: 20px;
+
+    li {
+        list-style: none;
+    }
 }
 
 .links {
+    padding: 5px;
     text-decoration: none;
     transition: ease 0.2s;
-    color: rgb(28, 28, 61);
+    color: rgb(11, 11, 37);
     border-bottom: 2px solid transparent;
+    border-radius: 2px;
+    list-style: none;
+    padding-bottom: 1.5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    
 }
 
 .links:hover {
     border-bottom: 2px solid rgb(140, 140, 255);
     color: rgb(3, 3, 10);
+}
+
+.active {
+    background-color: rgba(67, 63, 78, 0.438);
 }
