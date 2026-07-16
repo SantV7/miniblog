@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <div className=''>
+      <div className='app'>
         <h1>MiniBlog</h1>
       </div>
             
