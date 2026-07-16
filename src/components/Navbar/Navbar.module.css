@@ -1,0 +1,16 @@
+.ul_links {
+    display: flex;
+    gap: 20px;
+}
+
+.links {
+    text-decoration: none;
+    transition: ease 0.2s;
+    color: rgb(28, 28, 61);
+    border-bottom: 2px solid transparent;
+}
+
+.links:hover {
+    border-bottom: 2px solid rgb(140, 140, 255);
+    color: rgb(3, 3, 10);
+}
