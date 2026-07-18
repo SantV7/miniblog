@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-    {showMenu ? <X onClick={setterMenu}/> : <Menu className={styles.menu_burguer} onClick={setterMenu}/>}
+    {showMenu ? <X className={styles.menu_burguer} onClick={setterMenu}/> : <Menu className={styles.menu_burguer} onClick={setterMenu}/>}
     
     <nav className={showMenu ? styles.menu_on : styles.menu_off}>
       <ul className={styles.ul_links}>

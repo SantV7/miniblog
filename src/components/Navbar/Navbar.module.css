@@ -42,9 +42,11 @@
 
     .menu_burguer {
         display: flex;
+        cursor: pointer;
     }
 
     .ul_links {
+        gap: 10px;
         flex-flow: column nowrap;
     }
 
@@ -54,6 +56,8 @@
         top: 3%;
         left: 70%;
     }
+
+    
     
     .menu_off {
         display: none;
