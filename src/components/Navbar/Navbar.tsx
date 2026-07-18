@@ -15,6 +15,12 @@ const Navbar = () => {
         <li>
           <Link className={styles.links}  to='/about'>About</Link>
         </li>
+        <li>
+          <Link className={styles.links}  to='/register'>Registrar</Link>
+        </li>
+        <li>
+          <Link className={styles.links}  to='/login'>Entrar</Link>
+        </li>        
       </ul>
     </nav>
     </>
