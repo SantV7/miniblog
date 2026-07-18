@@ -13,7 +13,7 @@ function App() {
     <>
       
         <header id='main_header'>
-          <Link id='your_blog' to='/'>YourBlog</Link>
+          <Link id='your_blog' to='/'>YourMoments</Link>
           <Navbar />
         </header>
 
