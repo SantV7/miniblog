@@ -75,6 +75,9 @@
 }
 
 .btnContainer {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
   width: 100%;
   margin-top: 10px;
 }
@@ -94,6 +97,10 @@
   border-right: 4px solid transparent;
 }
 
+.button[disabled] {
+    background-color: #aaa;
+}
+
 .button:hover {
   border-bottom: 3px solid rgb(168, 168, 255);
   border-right: 4px solid rgb(168, 168, 255);
@@ -103,6 +110,20 @@
 .button:active {
   transform: scale(0.99);
 }
+
+.warning_alert {
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.623);
+  border-radius: 5px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.301);
+  color: rgba(0, 0, 0, 0.76);
+  box-sizing: 0px 0px 17px rgba(0, 0, 0, 0.274);
+}
+
+
+
+
+
 
 @media screen and (max-width: 480px) {
   .container {
