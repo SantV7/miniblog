@@ -21,7 +21,6 @@ const Register = () => {
     if(password !== confirmPassword) return setErrorWarning('As duas senhas devem ser iguais');
 
  
-
     const newUser: UserData = {
       userName,
       email,
@@ -29,12 +28,11 @@ const Register = () => {
       confirmPassword
     }
 
-    setErrorWarning('')
-    
-    setUserName('')
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
+    setErrorWarning('');
+    setUserName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
   }
 
   return (
