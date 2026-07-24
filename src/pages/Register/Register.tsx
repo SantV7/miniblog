@@ -1,18 +1,21 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import styles from './Register.module.css'
 import type { UserData } from '../../types/user.type'
 import useAutentication from '../../hooks/useAutentication'
 
+
 const Register = () => {
   const [userName, setUserName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
+
   const [password, setPassword] = useState<string>('')
   const [confirmPassword, setConfirmPassword] = useState<string>('')
+
   const [errorWarning, setErrorWarning] = useState<string>()
 
-  const {authError, loading, auth, createUser} = useAutentication
+  const {authError, loading, auth, createUser} = useAutentication()
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
     if(userName.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') return setErrorWarning('É necessário concluir todos os campos');
@@ -22,7 +25,6 @@ const Register = () => {
     if(password.length < 8 || password.length > 13) return setErrorWarning("A senha deve conter entre 8 a 13 caracteres");
 
     if(password !== confirmPassword) return setErrorWarning('As duas senhas devem ser iguais');
-
  
     const newUser: UserData = {
       userName,
@@ -31,12 +33,23 @@ const Register = () => {
       confirmPassword
     }
 
+    const res = await createUser(newUser);
+
+    console.log(res);
+
     setErrorWarning('');
     setUserName('');
     setEmail('');
     setPassword('');
     setConfirmPassword('');
   }
+
+  useEffect(() => {
+    if(authError) setErrorWarning(authError)
+  }, [authError])
+
+
+
 
   return (
     <div className={styles.container}>
@@ -49,7 +62,6 @@ const Register = () => {
         <label className={styles.label}>
           <span>Nome</span>
           <input
-            minLength={3}
             type="text"
             name="name"
             required
@@ -78,8 +90,6 @@ const Register = () => {
           <input
             type="password"
             name="password"
-            minLength={8}
-            maxLength={14}
             required
             placeholder="Senha do usuário"
             value={password}
@@ -93,8 +103,6 @@ const Register = () => {
           <input
             type="password"
             name="confirmpassword"
-            minLength={8}
-            maxLength={14}
             required
             placeholder="Confirme a senha"
             value={confirmPassword}
