@@ -4,3 +4,9 @@ export interface UserData {
     password: string;
     confirmPassword: string;
 }
+
+export interface dataAutentification {
+    email: string;
+    password: string;
+    displayName: string | null;
+}

@@ -1,5 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth"
 import { useEffect, useState } from "react"
+import type { dataAutentification } from "../types/user.type"
 
 
 const useAutentication = () => {
@@ -15,27 +16,38 @@ const useAutentication = () => {
         if(canceled) return;
     }
 
-    const createUser = async (data) => {
+    const createUser = async (data: unknown) => {
         checkIfisCancelled()
 
         setLoading(true)
 
         try {
-            const {user} = createUserWithEmailAndPassword(
+            const { email, password, displayName } = data as dataAutentification
+            const { user } = await createUserWithEmailAndPassword(
                 auth,
-                data
+                email,
+                password
             )
+
+            updateProfile(user, {
+                displayName: displayName
+            })
+            return user
         } catch (err) {
             if(err instanceof Error) console.log(err.message)  
 
-            console.error("Ocorreu um erro desconhecido:", err);
+            console.error("Ocorreu um erro desconhecido:", err)
         } finally {
             setError(null)
             setLoading(false)
         }
     }
 
+    useEffect(() => {
+        return () => setCanceled(true)
+    }, [])
 
+return {error, loading, auth, createUser}
 
 }
 
