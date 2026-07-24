@@ -4,7 +4,7 @@ import type { dataAutentification } from "../types/user.type"
 
 
 const useAutentication = () => {
-    const [error, setError] = useState<null | string>(null)
+    const [authError, setAuthError] = useState<null | string>(null)
     
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -38,7 +38,7 @@ const useAutentication = () => {
 
             console.error("Ocorreu um erro desconhecido:", err)
         } finally {
-            setError(null)
+            setAuthError(null)
             setLoading(false)
         }
     }
@@ -47,7 +47,7 @@ const useAutentication = () => {
         return () => setCanceled(true)
     }, [])
 
-return {error, loading, auth, createUser}
+return {authError, loading, auth, createUser}
 
 }
 

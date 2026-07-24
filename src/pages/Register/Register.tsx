@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import styles from './Register.module.css'
 import type { UserData } from '../../types/user.type'
+import useAutentication from '../../hooks/useAutentication'
 
 const Register = () => {
   const [userName, setUserName] = useState<string>('')
@@ -8,6 +9,8 @@ const Register = () => {
   const [password, setPassword] = useState<string>('')
   const [confirmPassword, setConfirmPassword] = useState<string>('')
   const [errorWarning, setErrorWarning] = useState<string>()
+
+  const {authError, loading, auth, createUser} = useAutentication
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
