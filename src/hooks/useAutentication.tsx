@@ -1,4 +1,4 @@
-import { database } from "../firebase/settings"
+import {  database } from "../firebase/settings"
 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth"
 import { useEffect, useState } from "react"
@@ -9,7 +9,7 @@ const useAutentication = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [canceled, setCanceled] = useState<boolean>(false)
 
-    const auth = getAuth(database)
+    const auth = getAuth()
 
     function checkIfisCancelled() {
         if(canceled) { return; }
@@ -17,7 +17,9 @@ const useAutentication = () => {
 
     const createUser = async (data: unknown) => {
         checkIfisCancelled()
+        
         setLoading(true)
+
         setAuthError(null)
 
         try {
