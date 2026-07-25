@@ -112,7 +112,8 @@ const Register = () => {
         </label>
 
         <div id="btn_log" className={styles.btnContainer}>
-          <button type="submit" className={styles.button}>Cadastrar-se</button>
+          {loading ? <button disabled className={styles.button_disabled}>Carregando...</button> : <button type="submit" className={styles.button}>Cadastrar-se</button>}
+          
           {errorWarning && <p className={styles.warning_alert}>{errorWarning}</p>}
         </div>
       </form>

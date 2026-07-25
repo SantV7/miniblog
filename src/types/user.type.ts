@@ -8,5 +8,5 @@ export interface UserData {
 export interface dataAutentification {
     email: string;
     password: string;
-    displayName: string | null;
+    displayName: string | null | undefined;
 }

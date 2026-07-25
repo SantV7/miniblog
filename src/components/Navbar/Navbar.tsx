@@ -3,14 +3,16 @@ import styles from './Navbar.module.css'
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import { useAuthValue } from '../../context/AuthContext';
 
 const Navbar = () => {
 
-  const [showMenu, setShowMenu]= useState<boolean>(false)
+  const [showMenu, setShowMenu]= useState<boolean>(false);
 
   function setterMenu() {
     setShowMenu(!showMenu)
   }
+  const { user } = useAuthValue();
 
 
   return (
@@ -25,12 +27,17 @@ const Navbar = () => {
         <li>
           <Link className={styles.links}  to='/about'>About</Link>
         </li>
+
+        {!user && (
+          <>
         <li>
           <Link className={styles.links}  to='/register'>Registrar</Link>
         </li>
         <li>
           <Link className={styles.links}  to='/login'>Entrar</Link>
         </li>        
+          </>
+        )}
       </ul>
     </nav>
     </>
