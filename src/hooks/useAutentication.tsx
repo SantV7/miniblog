@@ -12,7 +12,7 @@ const useAutentication = () => {
     const auth = getAuth()
 
     function checkIfisCancelled() {
-        if(canceled) { return; }
+        if(canceled) { return }
     }
 
     const createUser = async (data: unknown) => {

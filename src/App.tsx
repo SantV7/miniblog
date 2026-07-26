@@ -10,7 +10,7 @@ import useAutentication from './hooks/useAutentication'
 
 function App() {
 
-  const [user, setUser] = useState<User | null | undefined>(undefined)
+ const [user, setUser] = useState<User | null | undefined>(undefined)
 
   const { auth } = useAutentication()
 
