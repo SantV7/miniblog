@@ -11,7 +11,8 @@ const Navbar = () => {
 
   function setterMenu() {
     setShowMenu(!showMenu)
-  }
+  };
+
   const { user } = useAuthValue();
 
 
@@ -28,13 +29,24 @@ const Navbar = () => {
           <Link className={styles.links}  to='/about'>About</Link>
         </li>
 
+        {user && (
+          <>
+           <li>
+            <Link className={styles.links}  to='/posts/create'>Postar</Link>
+           </li>
+           <li>
+            <Link className={styles.links}  to='/dashboard'>Dashboard</Link>
+           </li>        
+          </>
+        )}
+
         {!user && (
           <>
         <li>
-          <Link className={styles.links}  to='/register'>Registrar</Link>
+          <Link className={`${styles.links} ${styles.link_login}`}  to='/login'>Entrar</Link>
         </li>
         <li>
-          <Link className={styles.links}  to='/login'>Entrar</Link>
+          <Link className={`${styles.links} ${styles.link_register}`}  to='/register'>Cadastrar-se</Link>
         </li>        
           </>
         )}

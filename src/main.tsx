@@ -18,13 +18,12 @@ const router = createBrowserRouter([
    children: [
     { path: "/home",element: <Home /> },
     { path: "/about",element: <About /> },
-    { path: "/login",element: <Login />},
-    { path: "/register",element: <Register />},
-    { path: "/post",element: <CreatePost />},
-    { path: "/dashboard",element: <Dashboard />}
+    { path: "/login",element: <Login /> },
+    { path: "/register",element: <Register /> },
+    { path: "/posts/create",element: <CreatePost /> },
+    { path: "/dashboard",element: <Dashboard /> }
   ]},
   { path: "*",element: <NotFound />}
-
 ]);
 
 createRoot(document.getElementById('root')!).render(

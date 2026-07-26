@@ -1,5 +1,3 @@
-
-
 .ul_links {
     display: flex;
     gap: 20px;
@@ -22,6 +20,28 @@
     font-size: 1.3rem;
 }
 
+.link_login {
+    transition: ease 0.2s;
+    border-radius: 6px;
+    text-shadow: 1px 1px 1px rgba(19, 3, 18, 0.63);
+    background-color: rgb(153, 153, 255);
+    border: 1px solid rgba(0, 0, 0, 0.452);
+    padding: 10px 15px;
+    color: white;
+}
+
+.link_register {
+    transition: ease 0.2s;
+    border: 1px solid rgba(18, 17, 34, 0.226);
+    background-color: rgb(101, 101, 250);
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: white;
+}
+.link_login:hover, .link_register:hover {
+    background-color: rgb(71, 71, 196);
+}
+
 .links:hover {
     border-bottom: 2px solid rgb(140, 140, 255);
     color: rgb(3, 3, 10);
@@ -34,6 +54,7 @@
 .menu_burguer {
     display: none;
 }
+
 
 
 
