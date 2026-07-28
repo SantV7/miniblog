@@ -14,12 +14,14 @@ function App() {
 
   const { auth } = useAutentication()
 
-  const loadingUser = user === null
+  const loadingUser = user === undefined
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
     })
+
+    return () => unsubscribe();
   }, [auth])
   
 
@@ -32,7 +34,7 @@ function App() {
     }>
       Wellcome👾
     </p>
-  }
+  } 
 
   return (
     <>

@@ -1,0 +1,41 @@
+.about {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 20px;
+
+    h1 {
+        font-size: 2.1rem;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-size: 1.3rem;
+        letter-spacing: 0.3px;
+    }
+
+    .posts_btn {
+        background-color: black;
+        cursor: pointer;
+        padding: 13px 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.404);
+        border-radius: 4px;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(33, 16, 53, 0.404);
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-decoration: none;
+        transition: ease 0.23s;
+        margin-top: 40px;
+        border: 1px solid transparent;
+
+        &:hover {
+            text-shadow: 1px 1px 1px rgba(33, 16, 53, 0.712);
+            border: 1px solid rgba(64, 90, 177, 0.774);
+            background-color: rgb(129, 129, 226);
+            scale: 1.005;
+        }
+    }
+}
+
