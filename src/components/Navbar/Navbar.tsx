@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 import { useAuthValue } from '../../context/AuthContext';
+import useAutentication from '../../hooks/useAutentication';
 
 const Navbar = () => {
 
@@ -14,6 +15,8 @@ const Navbar = () => {
   };
 
   const { user } = useAuthValue();
+
+  const { logout } = useAutentication()
 
 
   return (
@@ -49,6 +52,12 @@ const Navbar = () => {
           <Link className={`${styles.links} ${styles.link_register}`}  to='/register'>Cadastrar-se</Link>
         </li>        
           </>
+        )}
+
+        {user && (
+        <li>
+          <button onClick={logout}>Sair</button>
+        </li>        
         )}
       </ul>
     </nav>

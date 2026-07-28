@@ -63,7 +63,13 @@ const useAutentication = () => {
         return () => setCanceled(true)
     }, [])
 
-return {authError, loading, auth, createUser}
+    const logout = () => {
+
+        checkIfisCancelled()
+        signOut(auth)
+    }
+
+return {authError, loading, auth, createUser, logout}
 
 }
 

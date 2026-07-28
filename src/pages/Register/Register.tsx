@@ -13,7 +13,7 @@ const Register = () => {
 
   const [errorWarning, setErrorWarning] = useState<string>()
 
-  const {authError, loading, auth, createUser} = useAutentication()
+  const {authError, loading, createUser} = useAutentication()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
