@@ -7,8 +7,9 @@
   max-width: 500px;
   margin: 40px auto;
   padding: 20px;
+  background-color: rgb(209, 209, 241);
+  border-radius: 6px;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .headerText {

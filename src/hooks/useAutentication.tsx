@@ -1,28 +1,27 @@
 import {  database } from "../firebase/settings"
-
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import type { dataAutentification } from "../types/user.type"
+
+
+interface LoginProps {
+    email: string;
+    password: string
+}
 
 const useAutentication = () => {
     const [authError, setAuthError] = useState<null | string>(null)
     const [loading, setLoading] = useState<boolean>(false)
-    const [canceled, setCanceled] = useState<boolean>(false)
 
     const auth = getAuth()
 
-    function checkIfisCancelled() {
-        if(canceled) { return }
-    }
-
     const createUser = async (data: unknown) => {
-        checkIfisCancelled()
-        
         setLoading(true)
 
         setAuthError(null)
 
         try {
+            setLoading(true)
             const { email, password, displayName } = data as dataAutentification
             
             const { user } = await createUserWithEmailAndPassword(
@@ -38,6 +37,7 @@ const useAutentication = () => {
             return user;
         } catch (err) {
             let msgError: string = "Ocorreu um erro, tente mais tarde."
+            console.error("Ocorreu um erro desconhecido:", err)
 
             if(err instanceof Error) {
                 console.log(err.message)
@@ -47,10 +47,7 @@ const useAutentication = () => {
                 }
                 else if(err.message.includes("email-already")) {
                     msgError = "E-mail já cadastrado."
-                } else {
-                    msgError = "Ocorreu um erro desconhecido"
-                    console.error("Ocorreu um erro desconhecido:", err)
-                }
+                } 
             }  
 
             setAuthError(msgError)
@@ -59,18 +56,40 @@ const useAutentication = () => {
         }
     }
 
-    useEffect(() => {
-        return () => setCanceled(true)
-    }, [])
+    const login = async (data: LoginProps) => {
+        const { email , password } = data 
+
+        setAuthError(null);
+        setLoading(true);
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+        } catch (err) {
+
+            let systemErrorMsg: string = "Erro ao realizar o login. Tente novamente."
+
+            console.log('Ocorreu um erro inesperado, por favor tente mais tarde.');
+            if(err instanceof Error) {
+                if(err.message.includes("user-not-found") || err.message.includes("invalid-credential")) {
+                    systemErrorMsg = "Usuário não encontrado."
+                } else if(err.message.includes("wrong-password")) {
+                    systemErrorMsg = "Senha incorreta"
+                }
+
+               
+
+                setAuthError(systemErrorMsg)
+            }
+        } finally {
+            setLoading(false)
+        }
+    }
 
     const logout = () => {
-
-        checkIfisCancelled()
         signOut(auth)
     }
 
-return {authError, loading, auth, createUser, logout}
-
+return {authError, loading, auth, createUser, login, logout}
 }
 
 export default useAutentication

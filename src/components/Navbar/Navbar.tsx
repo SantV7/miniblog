@@ -26,10 +26,10 @@ const Navbar = () => {
     <nav className={showMenu ? styles.menu_on : styles.menu_off}>
       <ul className={styles.ul_links}>
         <li>
-          <Link className={styles.links}  to='/home'>Home</Link>
+          <Link className={styles.links}  to='/home'>Inicio</Link>
         </li>
         <li>
-          <Link className={styles.links}  to='/about'>About</Link>
+          <Link className={styles.links}  to='/about'>Sobre</Link>
         </li>
 
         {user && (
@@ -56,7 +56,7 @@ const Navbar = () => {
 
         {user && (
         <li>
-          <button onClick={logout}>Sair</button>
+          <button className={styles.logout_btn} onClick={logout}>Sair</button>
         </li>        
         )}
       </ul>

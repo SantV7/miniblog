@@ -1,5 +1,6 @@
 .ul_links {
     display: flex;
+    align-items: center;
     gap: 20px;
 
     li {
@@ -10,14 +11,18 @@
 .links {
     padding: 5px;
     text-decoration: none;
-    transition: ease 0.2s;
+    transition: ease 0.26s;
     color: rgb(11, 11, 37);
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
     border-radius: 2px;
     list-style: none;
     padding-bottom: 1.5px;
     font-weight: 600;
     font-size: 1.3rem;
+}
+
+.links:hover {
+    border-bottom: 3px solid rgb(140, 140, 255);
 }
 
 .link_login {
@@ -42,10 +47,6 @@
     background-color: rgb(71, 71, 196);
 }
 
-.links:hover {
-    border-bottom: 2px solid rgb(140, 140, 255);
-}
-
 .active {
     background-color: rgba(67, 63, 78, 0.438);
 }
@@ -54,6 +55,23 @@
     display: none;
 }
 
+.logout_btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    border-bottom: 4px solid transparent;
+    color: white;
+    background-color: black;
+    transition: 0.18s;
+}
+
+.logout_btn:hover {
+    border-bottom: 4px solid orange;
+    background-color: rgb(48, 40, 53);
+}
 
 
 

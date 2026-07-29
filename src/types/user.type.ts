@@ -10,3 +10,9 @@ export interface dataAutentification {
     password: string;
     displayName: string | null | undefined;
 }
+
+export interface loginUser {
+    userName: string;
+    email: string;
+    password: string
+}
