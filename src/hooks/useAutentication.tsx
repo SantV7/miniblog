@@ -85,11 +85,9 @@ const useAutentication = () => {
         }
     }
 
-    const logout = () => {
-        signOut(auth)
-    }
+    const logout = () => signOut(auth)
 
-return {authError, loading, auth, createUser, login, logout}
+  return {authError, loading, auth, createUser, login, logout}
 }
 
 export default useAutentication

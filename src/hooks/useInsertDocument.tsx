@@ -8,9 +8,9 @@ interface StateProps {
 }
 
 type Action =
-    | { type: "LOADING" }
-    | { type: "INSERTED_DOC"; payload: DocumentReference<DocumentData> }
-    | { type: "ERROR"; payload: string }
+  | { type: "LOADING" }
+  | { type: "INSERTED_DOC"; payload: DocumentReference<DocumentData> }
+  | { type: "ERROR"; payload: string }
 
 const init: StateProps = {
     loading: false,

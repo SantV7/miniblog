@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import styles from './CreatePost.module.css'
 import { useAuthValue } from '../../context/AuthContext'
 import useInsertDocument from '../../hooks/useInsertDocument'
+import { useNavigate } from 'react-router-dom'
 
 const CreatePost = () => {
   const [title, setTitle] = useState<string>('')
@@ -12,6 +13,7 @@ const CreatePost = () => {
 
   const { user } = useAuthValue() || {}
   const { insertDocument, response } = useInsertDocument("posts")
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -50,6 +52,7 @@ const CreatePost = () => {
       setImage('')
       setBody('')
       setTagsInput('')
+      navigate('/home')
     }
   }
 
@@ -108,7 +111,7 @@ const CreatePost = () => {
 
         {response.loading ? (
           <button disabled className={styles.button_disabled}>
-            Aguarde...
+            Carregando...
           </button>
         ) : (
           <button type="submit" className={styles.button}>

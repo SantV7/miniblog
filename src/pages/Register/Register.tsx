@@ -20,7 +20,7 @@ const Register = () => {
 
     if(userName.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') return setErrorWarning('É necessário concluir todos os campos');
 
-    if(userName.length < 3  || userName.length > 50) return setErrorWarning("O Nome de usuário deve conter no minimo 3 caracteres ");
+    if(userName.length < 3 || userName.length > 50) return setErrorWarning("O Nome de usuário deve conter no minimo 3 caracteres ");
 
     if(password.length < 8 || password.length > 13) return setErrorWarning("A senha deve conter entre 8 a 13 caracteres");
 
